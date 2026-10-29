@@ -87,16 +87,9 @@ Aplicação web para uma instituição escolar, desenvolvida da prototipagem no 
 
 Tabelas principais: `contatos`, `visitas`, `alunos`, `responsaveis`, `matriculas` e `administradores`. O schema completo está em `colegio-backend/scripts/database-schema.sql`.
 
-## Equipe
-
-- [Nome 1]
-- [Nome 2]
-- [Nome 3]
-
 ## Links
 
-- Protótipo no Figma: [link]
-- Orientação: [professor(a)]
+- Protótipo no Figma: https://www.figma.com/design/B0q3foitkvuxyhkGlrbjQk/Untitled?node-id=0-1&t=ojGZ4UrS2Rp2Ggoo-1
 
 ## Licença
 
