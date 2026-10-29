@@ -1,0 +1,1142 @@
+/* ===== RESET E CONFIGURAÇÕES BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+}
+
+/* Variáveis CSS para cores e valores reutilizáveis */
+:root {
+  --purple: #6a0dad; /* Cor principal roxa */
+  --yellow: #ffd700; /* Cor secundária amarela */
+  --white: #ffffff; /* Branco */
+  --gray-50: #f9fafb; /* Cinza muito claro */
+  --gray-100: #f3f4f6; /* Cinza claro */
+  --gray-200: #e5e7eb; /* Cinza médio claro */
+  --gray-300: #d1d5db; /* Cinza médio */
+  --gray-600: #4b5563; /* Cinza escuro */
+  --gray-700: #374151; /* Cinza muito escuro */
+  --gray-800: #1f2937; /* Cinza quase preto */
+  --black: #000000; /* Preto */
+}
+
+/* Configurações base do body */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6; /* Altura da linha para melhor legibilidade */
+  color: var(--gray-700); /* Cor padrão do texto */
+}
+
+/* Container responsivo centralizado */
+.container {
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centralização horizontal */
+  padding: 0 1rem; /* Padding lateral */
+}
+
+/* ===== SISTEMA DE BOTÕES ===== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease; /* Transição suave para hover */
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Botão primário (amarelo com texto roxo) */
+.btn-primary {
+  background-color: var(--yellow);
+  color: var(--purple);
+}
+
+.btn-primary:hover {
+  background-color: #e6c200; /* Amarelo mais escuro no hover */
+  transform: translateY(-2px); /* Efeito de elevação */
+}
+
+/* Botão outline (borda branca, fundo transparente) */
+.btn-outline {
+  border: 2px solid var(--white);
+  color: var(--white);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--white);
+  color: var(--purple);
+}
+
+/* Botão roxo */
+.btn-purple {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.btn-purple:hover {
+  background-color: #5a0b8f; /* Roxo mais escuro */
+}
+
+/* Botão outline roxo */
+.btn-outline-purple {
+  border: 2px solid var(--purple);
+  color: var(--purple);
+  background: transparent;
+}
+
+.btn-outline-purple:hover {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+/* ===== CABEÇALHO ===== */
+.header {
+  background: var(--white);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  position: relative;
+  overflow: hidden; /* Esconde elementos decorativos que saem da área */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+/* Elementos decorativos do cabeçalho */
+.header-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Não interfere com cliques */
+}
+
+/* Círculo decorativo no canto superior direito */
+.decoration-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  background-color: var(--yellow);
+  opacity: 0.2;
+  border-radius: 50%;
+  transform: translate(4rem, -4rem); /* Posiciona parcialmente fora da tela */
+}
+
+/* Quadrado decorativo no canto inferior esquerdo */
+.decoration-square {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 6rem;
+  height: 6rem;
+  background-color: var(--purple);
+  opacity: 0.2;
+  transform: rotate(45deg) translate(-3rem, 3rem); /* Rotaciona e posiciona */
+}
+
+/* Barra de navegação */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  position: relative;
+  z-index: 10; /* Acima dos elementos decorativos */
+}
+
+/* Logo da escola */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Container do ícone do logo */
+.logo-icon {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ícone da lâmpada */
+.logo-icon i {
+  font-size: 2rem;
+  color: var(--purple);
+  z-index: 2;
+  position: relative;
+}
+
+/* Efeito de brilho atrás do ícone */
+.logo-glow {
+  position: absolute;
+  inset: 0;
+  background-color: var(--yellow);
+  opacity: 0.3;
+  border-radius: 50%;
+  filter: blur(4px); /* Efeito de desfoque para simular brilho */
+}
+
+/* Texto do logo */
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+/* Menu de navegação */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+/* Links do menu */
+.nav-link {
+  text-decoration: none;
+  color: var(--gray-700);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--purple);
+}
+
+/* Botão hambúrguer (mobile) - inicialmente oculto */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/* Barras do hambúrguer */
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--gray-700);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* ===== FORMAS GEOMÉTRICAS DECORATIVAS ===== */
+.geometric-shapes {
+  position: absolute;
+  inset: 0; /* Cobre toda a área do container pai */
+  overflow: hidden;
+  pointer-events: none; /* Não interfere com interações */
+}
+
+/* Classe base para todas as formas */
+.shape {
+  position: absolute;
+  opacity: 0.15; /* Transparência para não competir com o conteúdo */
+}
+
+/* Círculo 1 - animado */
+.circle-1 {
+  top: 5rem;
+  left: 2.5rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite; /* Animação de flutuação */
+}
+
+/* Triângulo 1 - criado com bordas CSS */
+.triangle-1 {
+  top: 15rem;
+  right: 2.5rem;
+  width: 0;
+  height: 0;
+  border-left: 2rem solid transparent;
+  border-right: 2rem solid transparent;
+  border-bottom: 3.5rem solid var(--purple);
+  animation: float 6s ease-in-out infinite 2s; /* Delay de 2s */
+}
+
+/* Quadrado 1 - rotacionado */
+.square-1 {
+  top: 8rem;
+  left: 33%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--purple);
+  transform: rotate(45deg);
+  animation: float 6s ease-in-out infinite 5s; /* Delay de 5s */
+}
+
+/* Círculo 2 */
+.circle-2 {
+  top: 10rem;
+  right: 5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--purple);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite 1s; /* Delay de 1s */
+}
+
+/* ===== ELEMENTOS DECORATIVOS TEMÁTICOS ===== */
+.decorative-elements {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Lâmpada decorativa usando SVG inline */
+.lightbulb-decoration {
+  position: absolute;
+  top: 5rem;
+  right: 2.5rem;
+  width: 3.75rem;
+  height: 5rem;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='80' viewBox='0 0 60 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10C20 10 12 18 12 28C12 35 16 41 22 44V55C22 57 24 59 26 59H34C36 59 38 57 38 55V44C44 41 48 35 48 28C48 18 40 10 30 10Z' fill='%236A0DAD'/%3E%3Crect x='24' y='59' width='12' height='4' rx='2' fill='%23FFD700'/%3E%3Crect x='26' y='65' width='8' height='3' rx='1.5' fill='%236A0DAD'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Cérebro decorativo */
+.brain-decoration {
+  position: absolute;
+  bottom: 8rem;
+  left: 5rem;
+  width: 3.125rem;
+  height: 2.5rem;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg width='50' height='40' viewBox='0 0 50 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 5C15 5 7 13 7 23C7 30 12 36 19 38C20 38 21 37 21 36V34C21 33 22 32 23 32H27C28 32 29 33 29 34V36C29 37 30 38 31 38C38 36 43 30 43 23C43 13 35 5 25 5Z' fill='%23FFD700'/%3E%3Ccircle cx='18' cy='20' r='2' fill='%236A0DAD'/%3E%3Ccircle cx='32' cy='20' r='2' fill='%236A0DAD'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Livro decorativo */
+.book-decoration {
+  position: absolute;
+  top: 50%;
+  right: 1.25rem;
+  width: 2.5rem;
+  height: 3.125rem;
+  opacity: 0.2;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='50' viewBox='0 0 40 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='5' y='10' width='30' height='35' rx='2' fill='%236A0DAD'/%3E%3Crect x='8' y='5' width='30' height='35' rx='2' fill='%23FFD700'/%3E%3Cline x1='12' y1='15' x2='30' y2='15' stroke='%236A0DAD' stroke-width='2'/%3E%3Cline x1='12' y1='20' x2='28' y2='20' stroke='%236A0DAD' stroke-width='2'/%3E%3Cline x1='12' y1='25' x2='32' y2='25' stroke='%236A0DAD' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* ===== ANIMAÇÕES ===== */
+/* Animação de flutuação para elementos decorativos */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px); /* Move 20px para cima no meio da animação */
+  }
+}
+
+/* ===== SEÇÃO HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--purple) 0%, #5a0b8f 100%); /* Gradiente roxo */
+  color: var(--white);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay escuro sobre o gradiente */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--black);
+  opacity: 0.1;
+}
+
+/* Decorações específicas do hero */
+.hero-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-circle {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  width: 8rem;
+  height: 8rem;
+  background-color: var(--yellow);
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+.hero-square {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2.5rem;
+  width: 6rem;
+  height: 6rem;
+  background-color: var(--white);
+  opacity: 0.1;
+  transform: rotate(45deg);
+}
+
+/* Conteúdo do hero */
+.hero-content {
+  text-align: center;
+  max-width: 64rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Título principal responsivo */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.75rem); /* Tamanho responsivo */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+/* Texto destacado em amarelo */
+.highlight {
+  color: var(--yellow);
+  display: block;
+}
+
+/* Subtítulo do hero */
+.hero-subtitle {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  margin-bottom: 2rem;
+  color: var(--gray-200);
+}
+
+/* Container dos botões do hero */
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ===== SEÇÃO COMPETÊNCIAS ===== */
+.competencias {
+  padding: 4rem 0;
+  background-color: var(--gray-50);
+  position: relative;
+}
+
+/* Cabeçalho das seções */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Título das seções */
+.section-title {
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 1rem;
+}
+
+/* Subtítulo das seções */
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+/* Grid responsivo das competências */
+.competencias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas automáticas */
+  gap: 1.5rem;
+}
+
+/* Card individual de competência */
+.competencia-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Efeito hover nos cards */
+.competencia-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-color: var(--yellow);
+  transform: translateY(-5px); /* Elevação no hover */
+}
+
+/* Ícone do card */
+.card-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--purple);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 2rem;
+}
+
+/* Título do card */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+
+/* Descrição do card */
+.card-description {
+  color: var(--gray-600);
+}
+
+/* ===== SEÇÃO SOBRE NÓS ===== */
+.sobre-nos {
+  padding: 4rem 0;
+  position: relative;
+}
+
+/* Grid da seção sobre */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Container dos itens sobre */
+.sobre-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Item individual (missão, valores, visão) */
+.sobre-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* Ícone dos itens sobre */
+.sobre-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+}
+
+/* Variações de cor dos ícones */
+.sobre-icon.yellow {
+  background-color: var(--yellow);
+  color: var(--purple);
+}
+
+.sobre-icon.purple {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+/* Texto dos itens sobre */
+.sobre-text h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+
+.sobre-text p {
+  color: var(--gray-600);
+}
+
+/* Card de destaque */
+.sobre-highlight {
+  position: relative;
+}
+
+.highlight-card {
+  background: linear-gradient(135deg, var(--purple) 0%, #5a0b8f 100%);
+  color: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.highlight-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Lista de benefícios */
+.highlight-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.highlight-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Bullet customizado */
+.bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ===== CALL TO ACTION ===== */
+.cta {
+  padding: 4rem 0;
+  background-color: var(--yellow);
+}
+
+.cta-content {
+  text-align: center;
+}
+
+.cta-title {
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 1rem;
+}
+
+.cta-subtitle {
+  font-size: 1.125rem;
+  color: var(--purple);
+  margin-bottom: 2rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ===== RODAPÉ ===== */
+.footer {
+  background-color: var(--purple);
+  color: var(--white);
+  padding: 3rem 0 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorações do rodapé */
+.footer-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.footer-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10rem;
+  height: 10rem;
+  background-color: var(--yellow);
+  opacity: 0.1;
+  border-radius: 50%;
+  transform: translate(-5rem, -5rem);
+}
+
+.footer-square {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  background-color: var(--white);
+  opacity: 0.05;
+  transform: rotate(45deg) translate(4rem, 4rem);
+}
+
+/* Conteúdo do rodapé */
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Logo do rodapé */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo i {
+  font-size: 2rem;
+  color: var(--yellow);
+}
+
+.footer-logo span {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.footer-description {
+  color: var(--gray-300);
+}
+
+/* Títulos das seções do rodapé */
+.footer-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+}
+
+/* Informações de contato */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-item i {
+  width: 1rem;
+  color: var(--yellow);
+}
+
+/* Links do rodapé */
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--gray-300);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--yellow);
+}
+
+/* Linha de copyright */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-bottom p {
+  color: var(--gray-300);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+/* Tablets e desktops pequenos */
+@media (min-width: 640px) {
+  .hero-buttons,
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+  .sobre-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Menu mobile */
+  .nav-menu {
+    position: fixed;
+    left: -100%; /* Inicialmente fora da tela */
+    top: 4rem;
+    flex-direction: column;
+    background-color: var(--white);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0;
+    gap: 1rem;
+  }
+
+  /* Menu ativo (visível) */
+  .nav-menu.active {
+    left: 0;
+  }
+
+  /* Mostrar hambúrguer no mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Animação do hambúrguer quando ativo */
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0; /* Esconde a barra do meio */
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg); /* Primeira barra vira X */
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg); /* Terceira barra vira X */
+  }
+
+  /* Logo menor no mobile */
+  .logo-text {
+    font-size: 1rem;
+  }
+}
+
+/* ===== ESTILOS DE FORMULÁRIOS ===== */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+/* Inputs, selects e textareas */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* Estado de foco dos campos */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+}
+
+.form-textarea {
+  resize: vertical; /* Permite redimensionar apenas verticalmente */
+  min-height: 100px;
+}
+
+/* Checkboxes */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.checkbox-input {
+  margin-top: 0.25rem;
+}
+
+.checkbox-label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--white);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  color: var(--gray-600);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+/* ===== SISTEMA DE GRID ===== */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Grid responsivo no mobile */
+@media (max-width: 768px) {
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== CLASSES UTILITÁRIAS ===== */
+.text-center {
+  text-align: center;
+}
+.text-purple {
+  color: var(--purple);
+}
+.text-yellow {
+  color: var(--yellow);
+}
+.bg-purple {
+  background-color: var(--purple);
+}
+.bg-yellow {
+  background-color: var(--yellow);
+}
+.bg-gray-50 {
+  background-color: var(--gray-50);
+}
+
+/* Margens */
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+/* Padding */
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+
+/* Display */
+.hidden {
+  display: none;
+}
+.block {
+  display: block;
+}
+.flex {
+  display: flex;
+}
+
+/* Flexbox */
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+
+/* Gaps */
+.gap-2 {
+  gap: 0.5rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+
+/* Larguras */
+.w-full {
+  width: 100%;
+}
+.max-w-md {
+  max-width: 28rem;
+}
+.max-w-lg {
+  max-width: 32rem;
+}
+.max-w-xl {
+  max-width: 36rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+/* Centralização */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Posicionamento */
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.z-10 {
+  z-index: 10;
+}
+
+/* Overflow */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Border radius */
+.rounded {
+  border-radius: 0.25rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+
+/* Bordas */
+.border {
+  border-width: 1px;
+}
+.border-2 {
+  border-width: 2px;
+}
+.border-yellow {
+  border-color: var(--yellow);
+}
+.border-purple {
+  border-color: var(--purple);
+}
+
+/* Sombras */
+.shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.shadow-xl {
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Transições */
+.transition {
+  transition: all 0.3s ease;
+}
+
+/* Hovers */
+.hover\:shadow-lg:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+.hover\:border-yellow:hover {
+  border-color: var(--yellow);
+}
+.hover\:transform:hover {
+  transform: translateY(-2px);
+}
+
+
+/* Utility class to hide elements */
+.hidden {
+  display: none !important;
+}
+
+

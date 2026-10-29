@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Aluno - Colégio Mentes Brilhantes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-decorations">
+            <div class="decoration-circle"></div>
+            <div class="decoration-square"></div>
+        </div>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="logo-glow"></div>
+                    </div>
+                    <span class="logo-text">Colégio Mentes Brilhantes</span>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="ciclos.html" class="nav-link">Nossos Ciclos</a></li>
+                    <li><a href="galeria.html" class="nav-link">Galeria</a></li>
+                    <li><a href="matricula.html" class="nav-link">Matrícula</a></li>
+                    <li><a href="login.html" class="nav-link">Login</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="login-main">
+        <!-- Elementos decorativos de fundo -->
+        <div class="geometric-shapes">
+            <div class="shape circle-1"></div>
+            <div class="shape triangle-1"></div>
+            <div class="shape square-1"></div>
+            <div class="shape circle-2"></div>
+        </div>
+        
+        <div class="decorative-elements">
+            <div class="lightbulb-decoration"></div>
+            <div class="brain-decoration"></div>
+            <div class="book-decoration"></div>
+        </div>
+
+        <!-- Formas decorativas específicas do login -->
+        <div class="login-decorations">
+            <div class="login-circle-1"></div>
+            <div class="login-square-1"></div>
+            <div class="login-triangle-1"></div>
+        </div>
+
+        <div class="login-container">
+            <!-- Card de login -->
+            <div class="login-card">
+                <div class="login-header">
+                    <!-- Ícone da escola -->
+                    <div class="school-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h1 class="login-title">Portal do Aluno</h1>
+                    <p class="login-subtitle">Acesse sua conta do Colégio Mentes Brilhantes</p>
+                </div>
+
+                <div class="login-content">
+                    <!-- Formulário de login -->
+                    <form id="login-form" class="login-form">
+                        <!-- Campo de e-mail/CPF -->
+                        <div class="form-group">
+                            <label for="login-email" class="form-label">E-mail ou CPF</label>
+                            <input 
+                                type="text" 
+                                id="login-email" 
+                                class="form-input" 
+                                placeholder="Digite seu e-mail ou CPF"
+                                required
+                            >
+                        </div>
+
+                        <!-- Campo de senha com toggle de visibilidade -->
+                        <div class="form-group">
+                            <label for="login-password" class="form-label">Senha</label>
+                            <div class="password-container">
+                                <input 
+                                    type="password" 
+                                    id="login-password" 
+                                    class="form-input" 
+                                    placeholder="Digite sua senha"
+                                    required
+                                >
+                                <!-- Botão para mostrar/ocultar senha -->
+                                <button type="button" id="password-toggle" class="password-toggle">
+                                    <i id="password-icon" class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Botão de login -->
+                        <button type="submit" id="login-btn" class="btn-login">
+                            <span class="btn-text">Entrar</span>
+                            <span class="btn-loading hidden">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                Entrando...
+                            </span>
+                        </button>
+                    </form>
+
+                    <!-- Link para recuperação de senha -->
+                    <div class="forgot-password">
+                        <button type="button" onclick="showForgotPassword()" class="forgot-link">
+                            Esqueci minha senha
+                        </button>
+                    </div>
+
+                    <!-- Link para matrícula -->
+                    <div class="signup-link">
+                        <p>Não tem uma conta? 
+                            <a href="matricula.html" class="signup-btn">Faça sua matrícula</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Link para voltar ao início -->
+            <div class="back-home">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar ao início
+                </a>
+                <a href="admin.html" class="admin-link">
+                    <i class="fas fa-user-shield"></i>
+                    Área do Administrador
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Esqueci Senha -->
+  <div id="forgot-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Recuperar Senha</h2>
+                <p>Digite seu e-mail para receber as instruções de recuperação</p>
+            </div>
+            
+            <div class="modal-body">
+                <form id="forgot-form">
+                    <div class="form-group">
+                        <label for="forgot-email" class="form-label">E-mail</label>
+                        <input 
+                            type="email" 
+                            id="forgot-email" 
+                            class="form-input" 
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="modal-buttons">
+                        <button type="button" onclick="closeForgotModal()" class="btn btn-outline-purple">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-purple">
+                            Enviar Instruções
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-decorations">
+            <div class="footer-circle"></div>
+            <div class="footer-square"></div>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Colégio Mentes Brilhantes</span>
+                    </div>
+                    <p class="footer-description">
+                        Formando mentes brilhantes para um futuro promissor. Educação de qualidade com amor e dedicação.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contato</h3>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(11) 1234-5678</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@mentesbrilhantes.edu.br</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rua da Educação, 123 - São Paulo, SP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="ciclos.html">Nossos Ciclos</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="matricula.html">Matrícula Online</a></li>
+                        <li><a href="login.html">Portal do Aluno</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Mentes Brilhantes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Colégio Mentes Brilhantes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Animações para mensagens */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        /* Indicador de sessão */
+        .session-indicator {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .session-indicator.active {
+            display: block;
+        }
+        
+        .session-indicator.expired {
+            background: #ef4444;
+        }
+        
+        /* Melhorias visuais */
+        .admin-login-card {
+            position: relative;
+        }
+        
+        .admin-login-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #8b5cf6, #a855f7, #8b5cf6);
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        /* Status de conexão */
+        .connection-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .connection-status.online {
+            background: #10b981;
+            color: white;
+        }
+        
+        .connection-status.offline {
+            background: #ef4444;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Indicador de Sessão -->
+    <div id="session-indicator" class="session-indicator">
+        <i class="fas fa-user-shield"></i>
+        <span id="session-text">Sessão Ativa</span>
+    </div>
+    
+    <!-- Status de Conexão -->
+    <div id="connection-status" class="connection-status">
+        <i class="fas fa-wifi"></i>
+        <span id="connection-text">Online</span>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-decorations">
+            <div class="decoration-circle"></div>
+            <div class="decoration-square"></div>
+        </div>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="logo-glow"></div>
+                    </div>
+                    <span class="logo-text">Colégio Mentes Brilhantes</span>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="ciclos.html" class="nav-link">Nossos Ciclos</a></li>
+                    <li><a href="galeria.html" class="nav-link">Galeria</a></li>
+                    <li><a href="matricula.html" class="nav-link">Matrícula</a></li>
+                    <li><a href="login.html" class="nav-link">Login</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-container">
+            <div class="geometric-shapes">
+                <div class="shape circle-1"></div>
+                <div class="shape triangle-1"></div>
+                <div class="shape square-1"></div>
+                <div class="shape circle-2"></div>
+            </div>
+            
+            <div class="decorative-elements">
+                <div class="lightbulb-decoration"></div>
+                <div class="brain-decoration"></div>
+                <div class="book-decoration"></div>
+            </div>
+            
+            <div class="container">
+                <!-- Login do Administrador -->
+                <div id="admin-login" class="admin-login-section">
+                    <div class="admin-login-card">
+                        <div class="admin-login-header">
+                            <div class="admin-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h1>Área do Administrador</h1>
+                            <p>Acesse o painel de controle do sistema</p>
+                        </div>
+                        
+                        <form id="admin-login-form" class="admin-login-form">
+                            <div class="form-group">
+                                <label for="admin-email" class="form-label">E-mail</label>
+                                <input type="email" id="admin-email" name="email" class="form-input" required value="admin@mentesbrilhantes.edu.br">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="admin-password" class="form-label">Senha</label>
+                                <input type="password" id="admin-password" name="password" class="form-input" required value="password">
+                            </div>
+                            
+                            <button type="submit" class="btn-admin-login">
+                                <span class="btn-text">Entrar</span>
+                                <span class="btn-loading hidden">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    Entrando...
+                                </span>
+                            </button>
+                        </form>
+                        
+                        <div class="admin-login-footer">
+                            <a href="login.html" class="back-link">
+                                <i class="fas fa-arrow-left"></i>
+                                Voltar ao Login de Alunos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Painel do Administrador -->
+                <div id="admin-panel" class="admin-panel hidden">
+                    <!-- Header do Painel -->
+                    <div class="admin-header">
+                        <div class="admin-header-content">
+                            <h1 class="admin-title">Painel do Administrador</h1>
+                            <div class="admin-user-info">
+                                <span id="admin-user-name">Administrador</span>
+                                <button id="admin-logout" class="btn-logout">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navegação do Painel -->
+                    <nav class="admin-nav">
+                        <div class="admin-nav-content">
+                            <button class="admin-nav-item active" data-section="dashboard">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard
+                            </button>
+                            <button class="admin-nav-item" data-section="contatos">
+                                <i class="fas fa-envelope"></i>
+                                Contatos
+                            </button>
+                            <button class="admin-nav-item" data-section="visitas">
+                                <i class="fas fa-calendar-alt"></i>
+                                Visitas
+                            </button>
+                            <button class="admin-nav-item" data-section="matriculas">
+                                <i class="fas fa-user-graduate"></i>
+                                Matrículas
+                            </button>
+                            <button class="admin-nav-item" data-section="alunos">
+                                <i class="fas fa-users"></i>
+                                Alunos
+                            </button>
+                        </div>
+                    </nav>
+                    
+                    <!-- Conteúdo do Painel -->
+                    <div class="admin-content">
+                        <!-- Dashboard -->
+                        <div id="dashboard-section" class="admin-section active">
+                            <div class="section-header">
+                                <h2>Dashboard</h2>
+                                <p>Visão geral do sistema</p>
+                            </div>
+                            
+                            <div class="dashboard-cards">
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 id="total-contatos">0</h3>
+                                        <p>Contatos</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 id="total-visitas">0</h3>
+                                        <p>Visitas</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 id="total-matriculas">0</h3>
+                                        <p>Matrículas</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="dashboard-card">
+                                    <div class="card-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 id="total-alunos">0</h3>
+                                        <p>Alunos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contatos -->
+                        <div id="contatos-section" class="admin-section hidden">
+                            <div class="section-header">
+                                <h2>Gerenciar Contatos</h2>
+                                <button class="btn-add" onclick="carregarContatos()">
+                                    <i class="fas fa-sync"></i>
+                                    Atualizar
+                                </button>
+                            </div>
+                            <div class="data-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Email</th>
+                                            <th>Assunto</th>
+                                            <th>Mensagem</th>
+                                            <th>Data</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="contatos-tbody">
+                                        <tr><td colspan="7">Carregando...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Visitas -->
+                        <div id="visitas-section" class="admin-section hidden">
+                            <div class="section-header">
+                                <h2>Gerenciar Visitas</h2>
+                                <button class="btn-add" onclick="carregarVisitas()">
+                                    <i class="fas fa-sync"></i>
+                                    Atualizar
+                                </button>
+                            </div>
+                            <div class="data-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Telefone</th>
+                                            <th>Email</th>
+                                            <th>Data Preferida</th>
+                                            <th>Observações</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="visitas-tbody">
+                                        <tr><td colspan="7">Carregando...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Matrículas -->
+                        <div id="matriculas-section" class="admin-section hidden">
+                            <div class="section-header">
+                                <h2>Gerenciar Matrículas</h2>
+                                <button class="btn-add" onclick="carregarMatriculas()">
+                                    <i class="fas fa-sync"></i>
+                                    Atualizar
+                                </button>
+                            </div>
+                            <div class="data-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Aluno</th>
+                                            <th>Série</th>
+                                            <th>Responsável</th>
+                                            <th>Telefone</th>
+                                            <th>Email</th>
+                                            <th>Data</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="matriculas-tbody">
+                                        <tr><td colspan="8">Carregando...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Alunos -->
+                        <div id="alunos-section" class="admin-section hidden">
+                            <div class="section-header">
+                                <h2>Gerenciar Alunos</h2>
+                                <button class="btn-add" onclick="carregarAlunos()">
+                                    <i class="fas fa-sync"></i>
+                                    Atualizar
+                                </button>
+                            </div>
+                            <div class="data-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Email</th>
+                                            <th>Série</th>
+                                            <th>Status</th>
+                                            <th>Data Matrícula</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="alunos-tbody">
+                                        <tr><td colspan="6">Carregando...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-decorations">
+            <div class="footer-circle"></div>
+            <div class="footer-square"></div>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Colégio Mentes Brilhantes</span>
+                    </div>
+                    <p class="footer-description">
+                        Formando mentes brilhantes para um futuro promissor. Educação de qualidade
+                        com metodologia inovadora e ambiente acolhedor.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="ciclos.html">Nossos Ciclos</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="matricula.html">Matrícula</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contato</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                        <p><i class="fas fa-envelope"></i> contato@mentesbrilhantes.edu.br</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Rua da Educação, 123</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Mentes Brilhantes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+    
+    <script>
+        // Monitorar status de conexão
+        function updateConnectionStatus() {
+            const statusEl = document.getElementById('connection-status');
+            const textEl = document.getElementById('connection-text');
+            
+            if (navigator.onLine) {
+                statusEl.className = 'connection-status online';
+                textEl.textContent = 'Online';
+                statusEl.style.display = 'none'; // Só mostrar quando offline
+            } else {
+                statusEl.className = 'connection-status offline';
+                textEl.textContent = 'Offline';
+                statusEl.style.display = 'block';
+            }
+        }
+        
+        // Atualizar indicador de sessão
+        function updateSessionIndicator() {
+            const indicatorEl = document.getElementById('session-indicator');
+            const textEl = document.getElementById('session-text');
+            
+            const session = localStorage.getItem('admin_session');
+            if (session) {
+                try {
+                    const sessionData = JSON.parse(session);
+                    const now = Date.now();
+                    const timeLeft = (sessionData.timestamp + sessionData.expiresIn) - now;
+                    
+                    if (timeLeft > 0) {
+                        indicatorEl.className = 'session-indicator active';
+                        const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
+                        const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        textEl.textContent = `Sessão: ${hoursLeft}h ${minutesLeft}m`;
+                    } else {
+                        indicatorEl.className = 'session-indicator expired';
+                        textEl.textContent = 'Sessão Expirada';
+                    }
+                } catch (error) {
+                    indicatorEl.style.display = 'none';
+                }
+            } else {
+                indicatorEl.style.display = 'none';
+            }
+        }
+        
+        // Event listeners
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+        
+        // Atualizar status periodicamente
+        setInterval(updateSessionIndicator, 30000); // A cada 30 segundos
+        
+        // Inicializar
+        updateConnectionStatus();
+        updateSessionIndicator();
+    </script>
+</body>
+</html>

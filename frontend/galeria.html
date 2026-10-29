@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Colégio Mentes Brilhantes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="galeria.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-decorations">
+            <div class="decoration-circle"></div>
+            <div class="decoration-square"></div>
+        </div>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="logo-glow"></div>
+                    </div>
+                    <span class="logo-text">Colégio Mentes Brilhantes</span>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="ciclos.html" class="nav-link">Nossos Ciclos</a></li>
+                    <li><a href="galeria.html" class="nav-link">Galeria</a></li>
+                    <li><a href="matricula.html" class="nav-link">Matrícula</a></li>
+                    <li><a href="login.html" class="nav-link">Login</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="geometric-shapes">
+                <div class="shape circle-1"></div>
+                <div class="shape triangle-1"></div>
+                <div class="shape square-1"></div>
+                <div class="shape circle-2"></div>
+            </div>
+            <div class="decorative-elements">
+                <div class="lightbulb-decoration"></div>
+                <div class="brain-decoration"></div>
+                <div class="book-decoration"></div>
+            </div>
+            <div class="hero-decorations">
+                <div class="hero-circle"></div>
+                <div class="hero-square"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Nossa Escola em <span class="highlight">Imagens</span>
+                    </h1>
+                    <p class="hero-subtitle">Conheça nossos espaços, atividades e momentos especiais que fazem parte da jornada educacional</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtros -->
+        <section class="filtros">
+            <div class="container">
+                <div class="filtros-header">
+                    <i class="fas fa-filter"></i>
+                    <span>Filtrar por categoria:</span>
+                </div>
+                <div class="filtros-buttons">
+                    <button class="filtro-btn active" data-filter="todas">
+                        <i class="fas fa-camera"></i>
+                        <span>Todas as Fotos</span>
+                    </button>
+                    <button class="filtro-btn" data-filter="estrutura">
+                        <i class="fas fa-building"></i>
+                        <span>Nossa Estrutura</span>
+                    </button>
+                    <button class="filtro-btn" data-filter="atividades">
+                        <i class="fas fa-users"></i>
+                        <span>Atividades</span>
+                    </button>
+                    <button class="filtro-btn" data-filter="eventos">
+                        <i class="fas fa-trophy"></i>
+                        <span>Eventos</span>
+                    </button>
+                    <button class="filtro-btn" data-filter="ensino">
+                        <i class="fas fa-book-open"></i>
+                        <span>Sala de Aula</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeria -->
+        <section class="galeria-section">
+            <div class="container">
+                <div class="galeria-grid" id="galeria-grid">
+                    <!-- As fotos serão inseridas aqui via JavaScript -->
+                </div>
+                
+                <div class="no-results hidden" id="no-results">
+                    <i class="fas fa-camera"></i>
+                    <p>Nenhuma foto encontrada nesta categoria.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Quer conhecer pessoalmente?</h2>
+                    <p class="cta-subtitle">Agende uma visita e conheça todos os nossos espaços, converse com nossa equipe e sinta a energia positiva que move o Colégio Mentes Brilhantes.</p>
+                    <div class="cta-buttons">
+                        <a href="contato.html" class="btn btn-purple">Agendar Visita</a>
+                        <a href="matricula.html" class="btn btn-outline-purple">Fazer Matrícula</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-prev" id="lightbox-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <img class="lightbox-image" id="lightbox-image" src="/placeholder.svg" alt="">
+            <button class="lightbox-next" id="lightbox-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="lightbox-counter" id="lightbox-counter">1 / 12</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-decorations">
+            <div class="footer-circle"></div>
+            <div class="footer-square"></div>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Colégio Mentes Brilhantes</span>
+                    </div>
+                    <p class="footer-description">
+                        Formando mentes brilhantes para um futuro promissor. Educação de qualidade com amor e dedicação.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contato</h3>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(11) 1234-5678</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@mentesbrilhantes.edu.br</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rua da Educação, 123 - São Paulo, SP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="ciclos.html">Nossos Ciclos</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="matricula.html">Matrícula Online</a></li>
+                        <li><a href="login.html">Portal do Aluno</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Mentes Brilhantes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="galeria.js"></script>
+</body>
+</html>

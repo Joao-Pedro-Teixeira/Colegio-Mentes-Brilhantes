@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrícula - Colégio Mentes Brilhantes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="matricula.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-decorations">
+            <div class="decoration-circle"></div>
+            <div class="decoration-square"></div>
+        </div>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="logo-glow"></div>
+                    </div>
+                    <span class="logo-text">Colégio Mentes Brilhantes</span>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                    <li><a href="ciclos.html" class="nav-link">Nossos Ciclos</a></li>
+                    <li><a href="galeria.html" class="nav-link">Galeria</a></li>
+                    <li><a href="matricula.html" class="nav-link">Matrícula</a></li>
+                    <li><a href="login.html" class="nav-link">Login</a></li>
+                    <li><a href="contato.html" class="nav-link">Contato</a></li>
+                </ul>
+                
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-container">
+            <div class="geometric-shapes">
+                <div class="shape circle-1"></div>
+                <div class="shape triangle-1"></div>
+                <div class="shape square-1"></div>
+                <div class="shape circle-2"></div>
+            </div>
+            
+            <div class="decorative-elements">
+                <div class="lightbulb-decoration"></div>
+                <div class="brain-decoration"></div>
+                <div class="book-decoration"></div>
+            </div>
+            
+            <div class="container">
+                <!-- Cabeçalho da página -->
+                <div class="page-header">
+                    <h1 class="page-title">Matrícula Online</h1>
+                    <p class="page-subtitle">Preencha os dados abaixo para solicitar a matrícula no Colégio Mentes Brilhantes</p>
+                </div>
+                
+                <!-- Card do formulário -->
+                <div class="card matricula-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Formulário de Matrícula</h2>
+                        <p class="card-description">Complete todas as seções para finalizar sua solicitação</p>
+                    </div>
+                    
+                    <div class="card-content">
+                        <form id="matricula-form">
+                            <!-- Abas de navegação -->
+                            <div class="tabs">
+                                <div class="tab-list">
+                                    <button type="button" class="tab-trigger active" data-tab="aluno">
+                                        <i class="fas fa-user"></i>
+                                        <span>Dados do Aluno</span>
+                                    </button>
+                                    <button type="button" class="tab-trigger" data-tab="responsavel">
+                                        <i class="fas fa-users"></i>
+                                        <span>Responsável</span>
+                                    </button>
+                                    <button type="button" class="tab-trigger" data-tab="outros">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Outros Dados</span>
+                                    </button>
+                                </div>
+                                
+                                <!-- Conteúdo da aba: Dados do Aluno -->
+                                <div id="tab-aluno" class="tab-content active">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label for="nomeAluno" class="form-label">Nome Completo *</label>
+                                            <input type="text" id="nomeAluno" class="form-input" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="dataNascimento" class="form-label">Data de Nascimento *</label>
+                                            <input type="date" id="dataNascimento" class="form-input" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="genero" class="form-label">Gênero</label>
+                                            <select id="genero" class="form-select">
+                                                <option value="" selected disabled>Selecione o gênero</option>
+                                                <option value="masculino">Masculino</option>
+                                                <option value="feminino">Feminino</option>
+                                                <option value="outro">Outro</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="cpfAluno" class="form-label">CPF</label>
+                                            <input type="text" id="cpfAluno" class="form-input" placeholder="000.000.000-00">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="rgAluno" class="form-label">RG</label>
+                                            <input type="text" id="rgAluno" class="form-input">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="cep" class="form-label">CEP</label>
+                                            <input type="text" id="cep" class="form-input" placeholder="00000-000">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="endereco" class="form-label">Endereço Completo</label>
+                                        <input type="text" id="endereco" class="form-input" placeholder="Rua, número, bairro">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="cidade" class="form-label">Cidade</label>
+                                        <input type="text" id="cidade" class="form-input">
+                                    </div>
+                                    
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label for="serie" class="form-label">Série/Ano Pretendido *</label>
+                                            <select id="serie" class="form-select" required>
+                                                <option value="" selected disabled>Selecione a série</option>
+                                                <option value="1ano">1º Ano</option>
+                                                <option value="2ano">2º Ano</option>
+                                                <option value="3ano">3º Ano</option>
+                                                <option value="4ano">4º Ano</option>
+                                                <option value="5ano">5º Ano</option>
+                                                <option value="6ano">6º Ano</option>
+                                                <option value="7ano">7º Ano</option>
+                                                <option value="8ano">8º Ano</option>
+                                                <option value="9ano">9º Ano</option>
+                                                <option value="1medio">1º Médio</option>
+                                                <option value="2medio">2º Médio</option>
+                                                <option value="3medio">3º Médio</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="turno" class="form-label">Turno Desejado</label>
+                                            <select id="turno" class="form-select">
+                                                <option value="" selected disabled>Selecione o turno</option>
+                                                <option value="manha">Manhã</option>
+                                                <option value="tarde">Tarde</option>
+                                                <option value="noite">Noite</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="escolaAnterior" class="form-label">Escola Anterior (opcional)</label>
+                                        <input type="text" id="escolaAnterior" class="form-input">
+                                    </div>
+                                </div>
+                                
+                                <!-- Conteúdo da aba: Responsável -->
+                                <div id="tab-responsavel" class="tab-content">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label for="nomeResponsavel" class="form-label">Nome Completo do Responsável *</label>
+                                            <input type="text" id="nomeResponsavel" class="form-input" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="parentesco" class="form-label">Parentesco</label>
+                                            <select id="parentesco" class="form-select">
+                                                <option value="" selected disabled>Selecione o parentesco</option>
+                                                <option value="pai">Pai</option>
+                                                <option value="mae">Mãe</option>
+                                                <option value="avo">Avô/Avó</option>
+                                                <option value="tio">Tio/Tia</option>
+                                                <option value="responsavel">Responsável Legal</option>
+                                                <option value="outro">Outro</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="cpfResponsavel" class="form-label">CPF do Responsável *</label>
+                                            <input type="text" id="cpfResponsavel" class="form-input" placeholder="000.000.000-00" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="telefone" class="form-label">Telefone *</label>
+                                            <input type="text" id="telefone" class="form-input" placeholder="(11) 99999-9999" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">E-mail *</label>
+                                        <input type="email" id="email" class="form-input" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="enderecoResponsavel" class="form-label">Endereço (se diferente do aluno)</label>
+                                        <input type="text" id="enderecoResponsavel" class="form-input" placeholder="Deixe em branco se for o mesmo endereço do aluno">
+                                    </div>
+                                </div>
+                                
+                                <!-- Conteúdo da aba: Outros Dados -->
+                                <div id="tab-outros" class="tab-content">
+                                    <div class="form-group">
+                                        <label for="observacoes" class="form-label">Observações Gerais</label>
+                                        <textarea id="observacoes" class="form-textarea" placeholder="Informações adicionais, necessidades especiais, etc." rows="4"></textarea>
+                                    </div>
+                                    
+                                    <div class="checkbox-groups">
+                                        <div class="checkbox-group">
+                                            <input type="checkbox" id="autorizacaoImagem" class="checkbox-input">
+                                            <label for="autorizacaoIm agem" class="checkbox-label">
+                                                Autorizo o uso de imagem do aluno em atividades escolares e materiais de divulgação da escola
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="checkbox-group">
+                                            <input type="checkbox" id="termoAceite" class="checkbox-input" required>
+                                            <label for="termoAceite" class="checkbox-label">
+                                                Li e aceito os termos e condições da matrícula *
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Lista de documentos necessários -->
+                                    <div class="documentos-info">
+                                        <h3>Documentos Necessários:</h3>
+                                        <ul>
+                                            <li>• Certidão de nascimento do aluno</li>
+                                            <li>• RG e CPF do aluno (se houver)</li>
+                                            <li>• RG e CPF do responsável</li>
+                                            <li>• Comprovante de residência</li>
+                                            <li>• Histórico escolar (se houver)</li>
+                                            <li>• Carteira de vacinação</li>
+                                            <li>• 2 fotos 3x4 do aluno</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Botões de navegação -->
+                            <div class="form-navigation">
+                                <button type="button" id="btn-anterior" class="btn btn-outline-purple" disabled>Anterior</button>
+                                <button type="button" id="btn-proximo" class="btn btn-purple">Próximo</button>
+                                <button type="submit" id="btn-enviar" class="btn btn-purple hidden">Enviar Matrícula</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Sucesso -->
+  <div id="success-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Matrícula Enviada com Sucesso!</h2>
+                <p>Recebemos sua solicitação de matrícula. Em breve entraremos em contato para finalizar o processo.</p>
+            </div>
+            
+            <div class="modal-body">
+                <div class="proximos-passos">
+                    <h3>Próximos passos:</h3>
+                    <ul>
+                        <li>• Análise da documentação (1-2 dias úteis)</li>
+                        <li>• Contato para agendamento de entrevista</li>
+                        <li>• Finalização da matrícula</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button onclick="closeModal()" class="btn btn-purple">Voltar ao Início</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-decorations">
+            <div class="footer-circle"></div>
+            <div class="footer-square"></div>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Colégio Mentes Brilhantes</span>
+                    </div>
+                    <p class="footer-description">
+                        Formando mentes brilhantes para um futuro promissor. Educação de qualidade com amor e dedicação.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contato</h3>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(11) 1234-5678</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@mentesbrilhantes.edu.br</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rua da Educação, 123 - São Paulo, SP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="ciclos.html">Nossos Ciclos</a></li>
+                        <li><a href="galeria.html">Galeria</a></li>
+                        <li><a href="matricula.html">Matrícula Online</a></li>
+                        <li><a href="login.html">Portal do Aluno</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Colégio Mentes Brilhantes. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="matricula.js"></script>
+
+</body>
+</html>

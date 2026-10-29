@@ -1,0 +1,219 @@
+/* Estilos específicos para a página de ciclos */
+
+.ciclos-section {
+  padding: 4rem 0;
+  background-color: var(--gray-50);
+  position: relative;
+}
+
+.ciclos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+}
+
+.ciclo-card {
+  background: var(--white);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.ciclo-card:hover {
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.ciclo-card.infantil {
+  border-color: #fce7f3;
+  background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);
+}
+
+.ciclo-card.infantil:hover {
+  border-color: #f472b6;
+}
+
+.ciclo-card.fundamental1 {
+  border-color: #dbeafe;
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+}
+
+.ciclo-card.fundamental1:hover {
+  border-color: #60a5fa;
+}
+
+.ciclo-card.fundamental2 {
+  border-color: #dcfce7;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+}
+
+.ciclo-card.fundamental2:hover {
+  border-color: #4ade80;
+}
+
+.ciclo-card.medio {
+  border-color: #e9d5ff;
+  background: linear-gradient(135deg, #faf5ff 0%, #ffffff 100%);
+}
+
+.ciclo-card.medio:hover {
+  border-color: var(--purple);
+}
+
+.ciclo-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.ciclo-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--purple);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.ciclo-info {
+  flex: 1;
+}
+
+.ciclo-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+
+.ciclo-age {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.ciclo-age i {
+  color: var(--yellow);
+}
+
+.ciclo-image {
+  height: 12rem;
+  overflow: hidden;
+}
+
+.ciclo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ciclo-card:hover .ciclo-image img {
+  transform: scale(1.05);
+}
+
+.ciclo-content {
+  padding: 1.5rem;
+}
+
+.ciclo-description {
+  color: var(--gray-700);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.ciclo-objectives {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.ciclo-objectives h4 {
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ciclo-objectives h4 i {
+  color: var(--yellow);
+}
+
+.ciclo-objectives ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ciclo-objectives li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.metodologia {
+  padding: 4rem 0;
+  background: var(--white);
+}
+
+.metodologia-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.metodologia-card {
+  text-align: center;
+  padding: 2rem;
+  border: 2px solid var(--yellow);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.metodologia-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.metodologia-card .card-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--purple);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 2rem;
+}
+
+.metodologia-card .card-icon.yellow {
+  background-color: var(--yellow);
+  color: var(--purple);
+}
+
+@media (max-width: 768px) {
+  .ciclos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ciclo-card {
+    min-width: auto;
+  }
+}

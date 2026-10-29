@@ -1,0 +1,332 @@
+/* Estilos específicos para a página de matrícula */
+
+.page-container {
+  min-height: 100vh;
+  background-color: var(--gray-50);
+  padding: 3rem 0;
+  position: relative;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.matricula-card {
+  max-width: 64rem;
+  margin: 0 auto;
+  border: 2px solid var(--yellow);
+}
+
+/* Sistema de abas */
+.tabs {
+  width: 100%;
+}
+
+.tab-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 1.5rem;
+}
+
+.tab-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  color: var(--gray-600);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-trigger:hover {
+  color: var(--purple);
+  background-color: var(--gray-50);
+}
+
+.tab-trigger.active {
+  color: var(--purple);
+  border-bottom-color: var(--purple);
+  background-color: var(--gray-50);
+}
+
+.tab-trigger i {
+  font-size: 1.125rem;
+}
+
+.tab-trigger span {
+  font-size: 0.875rem;
+}
+
+/* Conteúdo das abas */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grid de formulário */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Grupos de checkbox */
+.checkbox-groups {
+  margin: 1.5rem 0;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.checkbox-input {
+  margin-top: 0.25rem;
+  accent-color: var(--purple);
+}
+
+.checkbox-label {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.4;
+}
+
+/* Informações sobre documentos */
+.documentos-info {
+  background-color: rgba(255, 215, 0, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.documentos-info h3 {
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 0.75rem;
+}
+
+.documentos-info ul {
+  list-style: none;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+.documentos-info li {
+  margin-bottom: 0.25rem;
+}
+
+/* Navegação do formulário */
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: 0.75rem;
+  max-width: 32rem;
+  width: 100%;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid var(--yellow);
+}
+
+.modal-header {
+  text-align: center;
+  padding: 2rem 2rem 1rem;
+}
+
+.success-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: #10b981;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 2rem;
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+
+.modal-header p {
+  color: var(--gray-600);
+}
+
+.modal-body {
+  padding: 0 2rem;
+}
+
+.proximos-passos {
+  background-color: var(--gray-50);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.proximos-passos h3 {
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+
+.proximos-passos ul {
+  list-style: none;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+.proximos-passos li {
+  margin-bottom: 0.25rem;
+}
+
+.modal-footer {
+  padding: 1rem 2rem 2rem;
+  text-align: center;
+}
+
+/* Estados de erro */
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .tab-list {
+    grid-template-columns: 1fr;
+  }
+
+  .tab-trigger {
+    padding: 0.75rem;
+  }
+
+  .tab-trigger span {
+    display: none;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-navigation {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .modal-content {
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 1rem 0;
+  }
+
+  .tab-trigger {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+
+  .tab-trigger i {
+    font-size: 1rem;
+  }
+}
